@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hop-Fighter</title>
+				<link rel="stylesheet" href="/client/index.css" type="text/css" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" type="text/css" />
+				<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    </head>
+    <body style="background-color:#04bddf">
+			<h1 class="ui header" id="loading">Loading...</h1>
+			<div class="ui input" id="usernameContainer">
+				<input type="text" id="playername" placeholder="Username" onkeyup="valid(this)" onblur="valid(this)" maxlength="15">
+			</div>
+			<div style="display:none" class="ui orange button" id="leaveroom" onclick="game.leave()"><i class="long arrow alternate left icon"></i></div>
+			<div id="roomContainer" class="ui segment" style="display:none">
+				<table class="ui celled table">
+					<thead id="roomHeader">
+						<tr>
+							<th>Room</th>
+							<th>Players</th>
+							<th>Password</th>
+						<tr>
+					</thead>
+					<tbody id="roomList">
+					</tbody>
+				</table>
+			</div>
+			<div id="openCreateRoom" class="ui orange button" onclick="game.openCreateRoom()">Create Room</div>
+			<div id="createRoomContainer" class="ui segment" style="display:none">
+				<table id="createRoomTable" class="ui celled table">
+					<thead id="createRoomHead">
+						<tr>
+							<th colspan="3" class="ui center aligned segment">CREATE ROOM</th>
+						</tr>
+						<tr>
+							<th>Name</th>
+							<th>Map</th>
+							<th>Password (optional)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="ui input">
+									<input type="text" placeholder="Name" id="createRoomName" onblur="valid(this)" onkeyup="valid(this)">
+								</div>
+							</td>
+							<td>
+								<select class="ui dropdown" id="createRoomDropdown">
+									<option value="small">Small</option>
+									<option value="big">Big</option>
+								</select>
+							</td>
+							<td>
+								<div class="ui input">
+									<input type="text" placeholder="Password" id="createRoomPassword">
+								</div>
+							</td> 
+						</tr>
+						<tr>
+							<td colspan="3"><div class="ui orange button" onclick="client.createRoom()">Go!</div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="ui segment" id="stats" style="display:none">
+				<h3 class="ui header">Health:</h1>
+				<meter min="0" max="100" value="100" optimum="100" low="25" high="75" id="health"></meter>
+				<h3 class="ui header" id="kills">Kills: 0</h3>
+				<h3 class="ui header" id="deaths">Deaths: 0</h3>
+			</div>
+			<div class="ui segment" id="clipContainer" style="display:none">
+				<h2 class="ui header" id="clip">7/7</h2>
+			</div>
+			<!--vvv scripts vvv -->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+			<script src="//cdn.jsdelivr.net/npm/phaser@3.14.0/dist/phaser.min.js"></script>
+			<script type="text/javascript" src="/client/roomscreen.js"></script>
+			<script type="text/javascript" src="/client/death.js"></script>
+			<script type="text/javascript" src="/client/titlescreen.js"></script>
+			<script type="text/javascript" src="/client/maingame.js"></script>
+			<script type="text/javascript" src="/client/client.js"></script>
+    </body>
+</html>

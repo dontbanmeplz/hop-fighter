@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Level Designer</title>
+		<link href="/client/design/design.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="sidebar">
+				<img src="/client/img/tiles/Plat1.png" onclick="select(`top`)" id="top" class="img">
+				<img src="/client/img/tiles/Plat1 midsec.png" onclick="select(`mid`)" id="mid" class="img">
+				<img src="/client/img/tiles/Plat1 Side L.png" onclick="select(`side-l`)" id="side-l" class="img">
+				<img src="/client/img/tiles/Plat1 Side R.png" onclick="select(`side-r`)" id="side-r" class="img">
+				<img src="/client/img/tiles/Plat1 bottom bit.png" onclick="select(`bottom`)" id="bottom" class="img">
+				<img src="/client/img/tiles/Plat1 Corner L B.png" onclick="select(`corner-l-b`)" id="corner-l-b" class="img">
+				<img src="/client/img/tiles/Plat1 Corner L T.png" onclick="select(`corner-l-t`)" id="corner-l-t" class="img">
+				<img src="/client/img/tiles/Plat1 Corner R B.png" onclick="select(`corner-r-b`)" id="corner-r-b" class="img">
+				<img src="/client/img/tiles/Plat1 Corner R T.png" onclick="select(`corner-r-t`)" id="corner-r-t" class="img">
+				<img src="/client/img/tiles/flag.png" onclick="select(`spawn`)" id="spawn" class="img">				
+			</div>
+			<div id="container" onmousedown="down()" onmouseup="up()">
+				<table id="table"></table>
+			</div>
+		</div><br />
+		<div id="optionContainer">
+			<input type="text" id="input" placeholder="Paste code here">
+			<button onclick="compile()">Compile</button>
+			<button onclick="load()">Load</button><br />
+			<input type="text" id="print" />
+			<button onclick="copy()">Copy</button>
+		</div>
+		<script src="/client/design/design.js"></script>
+	</body>
+</html>
